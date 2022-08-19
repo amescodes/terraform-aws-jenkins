@@ -1,5 +1,14 @@
 version: '3.7'
 services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: jenkins.Dockerfile
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - ./:/app
+    ports:
+      - 8080:8080
   aws:
     image: anigeo/awscli
     environment:
